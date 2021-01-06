@@ -1,13 +1,13 @@
 package com.example.KarDan;
 
-public class Item {
+public class Item implements Comparable<Item>{
     private String itemName;
     private int quantity;
     private double priceOfItem;
 
-    public Item(String itemName, int quantity, double priceOfItem) {
+    public Item(String itemName, double priceOfItem) {
         this.itemName = itemName;
-        this.quantity = quantity;
+        this.quantity = 0;
         this.priceOfItem = priceOfItem;
     }
 
@@ -30,5 +30,13 @@ public class Item {
             this.quantity += quantity;
             return true;
         }
+    }
+
+    @Override
+    public int compareTo(Item item) {
+        if (item != null) {
+            return this.itemName.compareTo(item.getItemName());
+        }
+        throw  new NullPointerException();
     }
 }

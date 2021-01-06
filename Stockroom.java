@@ -1,11 +1,9 @@
 package com.example.KarDan;
 
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class Stockroom {
+public class Stockroom{
     private final Set<Item> stock;
 
     public Stockroom() {
@@ -25,9 +23,10 @@ public class Stockroom {
     }
 
     public void printoutStockList() {
+        System.out.println("NAME --- PRICE --- QUANTITY");
         for (Item item : this.stock) {
-            System.out.println("NAME --- PRICE --- QUANTITY");
             System.out.println(item.getItemName() + "---" + item.getPriceOfItem() + "---" + item.getItemQuantity());
         }
     }
+
 }
