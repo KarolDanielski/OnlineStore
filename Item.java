@@ -22,7 +22,7 @@ public class Item implements Comparable<Item>{
     }
 
     public boolean changeQuantity(int quantity) {
-        if (this.quantity < quantity) {
+        if ((this.quantity + quantity) < 0) {
             System.out.println("Not enough " + this.itemName + "s in stock to perform this operation!" +
                     "\n Current quantity: " + this.quantity);
             return false;

@@ -12,9 +12,7 @@ public class Stockroom{
 
     public boolean addItemToStock(Item item, int quantity ) {
         if (item != null) {
-            if (this.stock.contains(item)) {
-                item.changeQuantity(quantity);
-            }
+            item.changeQuantity(quantity);
             this.stock.add(item);
             return true;
         } else {
