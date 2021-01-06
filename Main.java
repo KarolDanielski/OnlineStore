@@ -14,6 +14,7 @@ public class Main {
         storeStockroom.addItemToStock(apple,15);
         storeStockroom.addItemToStock(pear,20);
         storeStockroom.addItemToStock(lemon,80);
+        storeStockroom.addItemToStock(lemon,100);
 
         storeStockroom.printoutStockList();
 
