@@ -1,17 +1,16 @@
 package com.example.KarDan;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Store {
-    private final Set<Item> stock;
+    private final Map<String, Item> stock;
+    private Map<String, Item> unreservedItems;
     private Map<Integer, User> users;
 
     public Store() {
-        this.stock = new TreeSet<>();
+        this.stock = new TreeMap<>();
         this.users = new HashMap<>();
+        this.unreservedItems = new TreeMap<>(this.stock);
     }
 
     public boolean signIn(User user) {
@@ -23,6 +22,9 @@ public class Store {
         return false;
     }
     public void printOutUsers() {
+        System.out.println("----------------------------------------" +
+                "\nUsers list:" +
+                "\nID---First & Last name");
         for (Map.Entry<Integer,User> user : this.users.entrySet()) {
             System.out.println(user.getKey() + "---" + user.getValue());
         }
@@ -30,7 +32,9 @@ public class Store {
     public boolean addItemToStock(Item item, int quantity ) {
         if (item != null) {
             item.changeQuantity(quantity);
-            this.stock.add(item);
+            this.stock.put(item.getItemName(), item);
+            this.unreservedItems.put(item.getItemName(), item); //updating user available item pool
+//            System.out.println("adding");
             return true;
         } else {
             return false;
@@ -38,8 +42,8 @@ public class Store {
     }
 
     public boolean removeItemFromStock(Item item) {
-        if (item != null && this.stock.contains(item)) {
-            this.stock.remove(item);
+        if (item != null && this.stock.containsValue(item)) {
+            this.stock.remove(item.getItemName());
             return true;
         }
         return false;
@@ -47,13 +51,14 @@ public class Store {
 
     public void printoutStockList() {
         System.out.println("NAME --- PRICE --- QUANTITY");
-        for (Item item : this.stock) {
-            System.out.println(item.getItemName() + "---" + item.getPriceOfItem() + "---" + item.getItemQuantity());
+        for (Map.Entry<String, Item> item : this.unreservedItems.entrySet()) {
+            System.out.println(item.getValue().getItemName() + "---" + item.getValue().getPriceOfItem() + "---" + item.getValue().getItemQuantity());
         }
     }
 
-    public Set<Item> getStock() { //returns copy of store stock
-        return new TreeSet<>(this.stock);
+    public Map<String, Item> getStock() { //returns copy of store stock
+        return this.unreservedItems;
     }
+
 
 }

@@ -12,6 +12,11 @@ public class Item implements Comparable<Item>{
         this.quantity = 0;
         this.priceOfItem = priceOfItem;
     }
+    public Item(String itemName, double priceOfItem, int quantity) {
+        this.itemName = itemName;
+        this.quantity = quantity;
+        this.priceOfItem = priceOfItem;
+    }
 
     public int getItemQuantity() {
         return this.quantity;
@@ -47,8 +52,7 @@ public class Item implements Comparable<Item>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Double.compare(item.priceOfItem, priceOfItem) == 0 &&
-                Objects.equals(itemName, item.itemName);
+        return Objects.equals(itemName, item.itemName);
     }
 
     @Override

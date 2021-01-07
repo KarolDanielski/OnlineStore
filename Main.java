@@ -18,10 +18,10 @@ public class Main {
         fruitStore.addItemToStock(lemon,100);
         fruitStore.addItemToStock(someKindOfFruit,50);
 
-        fruitStore.removeItemFromStock(lemon);
+//        fruitStore.removeItemFromStock(lemon);
 
         fruitStore.printoutStockList();
-
+        //sign up of users
         User userOne = new User("Jan", "Kowalski", "Jan1");
         User userTwo = new User("Katarzyna", "Kwasniewska", "Katarzyna2");
         User userThree = new User("Maciej", "Wrobel", "Maciej3");
@@ -30,6 +30,12 @@ public class Main {
         fruitStore.signIn(userTwo);
         fruitStore.signIn(userThree);
         fruitStore.printOutUsers();
+
+        //reserving item in basket
+        userOne.getUserBasket().addToBasket(apple, 20, fruitStore.getStock());
+        userOne.getUserBasket().showBasketContent();
+//        userOne.checkOut();
+//        System.out.println(fruitStore.getStock().containsValue(apple));
 
 
 

@@ -14,6 +14,10 @@ public class User {
         this.userBasket = new Basket(this.firstName + this.lastName);
     }
 
+    public Basket getUserBasket() {
+        return  this.userBasket;
+    }
+
     public static int getUserID() {
         return userID;
     }
