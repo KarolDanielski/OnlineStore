@@ -11,4 +11,10 @@ public class Basket {
         this.owner = owner;
         this.inBasket = new LinkedHashSet<>();
     }
+
+//    public boolean addToBasket(Item item, int quantity) {
+//        if (item != null && quantity > 0) {
+//
+//        }
+//    }
 }

@@ -9,18 +9,27 @@ public class Main {
         Item pear = new Item("pear",0.70);
         Item lemon = new Item("lemon",0.90);
         Item someKindOfFruit = new Item("apple",0.70);
+        //setting up store, adding assortment
+        Store fruitStore = new Store();
+        fruitStore.addItemToStock(banana,10);
+        fruitStore.addItemToStock(apple,15);
+        fruitStore.addItemToStock(pear,20);
+        fruitStore.addItemToStock(lemon,80);
+        fruitStore.addItemToStock(lemon,100);
+        fruitStore.addItemToStock(someKindOfFruit,50);
 
-        Stockroom storeStockroom = new Stockroom();
-        storeStockroom.addItemToStock(banana,10);
-        storeStockroom.addItemToStock(apple,15);
-        storeStockroom.addItemToStock(pear,20);
-        storeStockroom.addItemToStock(lemon,80);
-        storeStockroom.addItemToStock(lemon,100);
-        storeStockroom.addItemToStock(someKindOfFruit,50);
+        fruitStore.removeItemFromStock(lemon);
 
-        storeStockroom.removeItemFromStock(lemon);
+        fruitStore.printoutStockList();
 
-        storeStockroom.printoutStockList();
+        User userOne = new User("Jan", "Kowalski", "Jan1");
+        User userTwo = new User("Katarzyna", "Kwasniewska", "Katarzyna2");
+        User userThree = new User("Maciej", "Wrobel", "Maciej3");
+
+        fruitStore.signIn(userOne);
+        fruitStore.signIn(userTwo);
+        fruitStore.signIn(userThree);
+        fruitStore.printOutUsers();
 
 
 
