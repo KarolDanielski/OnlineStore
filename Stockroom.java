@@ -20,6 +20,14 @@ public class Stockroom{
         }
     }
 
+    public boolean removeItemFromStock(Item item) {
+        if (item != null && this.stock.contains(item)) {
+            this.stock.remove(item);
+            return true;
+        }
+        return false;
+    }
+
     public void printoutStockList() {
         System.out.println("NAME --- PRICE --- QUANTITY");
         for (Item item : this.stock) {

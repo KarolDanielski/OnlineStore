@@ -1,5 +1,7 @@
 package com.example.KarDan;
 
+import java.util.Objects;
+
 public class Item implements Comparable<Item>{
     private String itemName;
     private int quantity;
@@ -38,5 +40,19 @@ public class Item implements Comparable<Item>{
             return this.itemName.compareTo(item.getItemName());
         }
         throw  new NullPointerException();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Double.compare(item.priceOfItem, priceOfItem) == 0 &&
+                Objects.equals(itemName, item.itemName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemName, priceOfItem);
     }
 }

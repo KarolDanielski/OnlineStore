@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Basket {
     private String owner;
-    private Set<User> inBasket;
+    private Set<Item> inBasket;
 
     public Basket(String owner) {
         this.owner = owner;

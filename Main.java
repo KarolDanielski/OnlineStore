@@ -8,6 +8,7 @@ public class Main {
         Item apple = new Item("apple", 0.35);
         Item pear = new Item("pear",0.70);
         Item lemon = new Item("lemon",0.90);
+        Item someKindOfFruit = new Item("apple",0.70);
 
         Stockroom storeStockroom = new Stockroom();
         storeStockroom.addItemToStock(banana,10);
@@ -15,6 +16,9 @@ public class Main {
         storeStockroom.addItemToStock(pear,20);
         storeStockroom.addItemToStock(lemon,80);
         storeStockroom.addItemToStock(lemon,100);
+        storeStockroom.addItemToStock(someKindOfFruit,50);
+
+        storeStockroom.removeItemFromStock(lemon);
 
         storeStockroom.printoutStockList();
 
