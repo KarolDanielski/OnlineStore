@@ -29,7 +29,7 @@ public class Main {
         fruitStore.signIn(userOne);
         fruitStore.signIn(userTwo);
         fruitStore.signIn(userThree);
-        fruitStore.printOutUsers();
+//        fruitStore.printOutUsers();
 
         //reserving item in basket
         userOne.getUserBasket().addToBasket(apple, 20, fruitStore.getStockPool());
@@ -39,17 +39,16 @@ public class Main {
         userThree.getUserBasket().addToBasket(pear,10,fruitStore.getStockPool());
         userThree.getUserBasket().addToBasket(banana,20,fruitStore.getStockPool());
         userThree.getUserBasket().addToBasket(apple,6,fruitStore.getStockPool());
-        userOne.getUserBasket().showBasketContent();
-        userThree.getUserBasket().showBasketContent();
+//        userOne.getUserBasket().showBasketContent();
+//        userThree.getUserBasket().showBasketContent();
 
+        fruitStore.removeItemFromStock(apple);
         fruitStore.printoutStockList();
         fruitStore.printoutStockPoolList();
 
-//        userOne.getUserBasket().checkOut(fruitStore.getStock());
-//        userOne.checkOut();
-//        System.out.println(fruitStore.getStock().containsValue(apple));
+        userOne.getUserBasket().checkOut(fruitStore.getStock());
 
-
-
+        fruitStore.printoutStockList();
+        fruitStore.printoutStockPoolList();
     }
 }

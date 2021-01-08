@@ -44,6 +44,7 @@ public class Store {
     public boolean removeItemFromStock(Item item) {
         if (item != null && this.stock.containsValue(item)) {
             this.stock.remove(item.getItemName());
+            this.unreservedItems.remove(item.getItemName());
             return true;
         }
         return false;
