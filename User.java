@@ -11,7 +11,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.userBasket = new Basket(this.firstName + this.lastName);
+        this.userBasket = new Basket(this.firstName + " " + this.lastName);
     }
 
     public Basket getUserBasket() {

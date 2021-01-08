@@ -10,7 +10,7 @@ public class Store {
     public Store() {
         this.stock = new TreeMap<>();
         this.users = new HashMap<>();
-        this.unreservedItems = new TreeMap<>(this.stock);
+        this.unreservedItems = new TreeMap<>();
     }
 
     public boolean signIn(User user) {
@@ -33,8 +33,8 @@ public class Store {
         if (item != null) {
             item.changeQuantity(quantity);
             this.stock.put(item.getItemName(), item);
-            this.unreservedItems.put(item.getItemName(), item); //updating user available item pool
-//            System.out.println("adding");
+            Item copyItem = new Item(item.getItemName(),item.getPriceOfItem(),item.getItemQuantity()); //new instance of item with old item details
+            this.unreservedItems.put(copyItem.getItemName(), copyItem); //updating user available item pool
             return true;
         } else {
             return false;
@@ -49,15 +49,26 @@ public class Store {
         return false;
     }
 
-    public void printoutStockList() {
-        System.out.println("NAME --- PRICE --- QUANTITY");
+    public void printoutStockPoolList() {
+        System.out.println("===STOCK POOL LIST===" +
+                "\nNAME --- PRICE --- QUANTITY");
         for (Map.Entry<String, Item> item : this.unreservedItems.entrySet()) {
             System.out.println(item.getValue().getItemName() + "---" + item.getValue().getPriceOfItem() + "---" + item.getValue().getItemQuantity());
         }
     }
+    public void printoutStockList() {
+        System.out.println("===STOCK LIST===" +
+                "\nNAME --- PRICE --- QUANTITY");
+        for (Map.Entry<String, Item> item : this.stock.entrySet()) {
+            System.out.println(item.getValue().getItemName() + "---" + item.getValue().getPriceOfItem() + "---" + item.getValue().getItemQuantity());
+        }
+    }
 
-    public Map<String, Item> getStock() { //returns copy of store stock
+    public Map<String, Item> getStockPool() { //returns copy of store stock
         return this.unreservedItems;
+    }
+    public Map<String, Item> getStock() { //returns store stock
+        return this.stock;
     }
 
 

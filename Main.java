@@ -32,8 +32,20 @@ public class Main {
         fruitStore.printOutUsers();
 
         //reserving item in basket
-        userOne.getUserBasket().addToBasket(apple, 20, fruitStore.getStock());
+        userOne.getUserBasket().addToBasket(apple, 20, fruitStore.getStockPool());
+        userOne.getUserBasket().addToBasket(apple,5,fruitStore.getStockPool());
+        userOne.getUserBasket().addToBasket(apple,100,fruitStore.getStockPool());
+        userOne.getUserBasket().addToBasket(lemon,52,fruitStore.getStockPool());
+        userThree.getUserBasket().addToBasket(pear,10,fruitStore.getStockPool());
+        userThree.getUserBasket().addToBasket(banana,20,fruitStore.getStockPool());
+        userThree.getUserBasket().addToBasket(apple,6,fruitStore.getStockPool());
         userOne.getUserBasket().showBasketContent();
+        userThree.getUserBasket().showBasketContent();
+
+        fruitStore.printoutStockList();
+        fruitStore.printoutStockPoolList();
+
+//        userOne.getUserBasket().checkOut(fruitStore.getStock());
 //        userOne.checkOut();
 //        System.out.println(fruitStore.getStock().containsValue(apple));
 
